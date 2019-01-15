@@ -1,4 +1,4 @@
 package ac.university.collegeApplication.controller;
 
-public class CollegeController {
+public class ProfessorController {
 }
