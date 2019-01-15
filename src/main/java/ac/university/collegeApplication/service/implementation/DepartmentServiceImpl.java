@@ -1,10 +1,19 @@
 package ac.university.collegeApplication.service.implementation;
 
 import ac.university.collegeApplication.entity.Department;
+import ac.university.collegeApplication.repository.DepartmentRepository;
 import ac.university.collegeApplication.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
 
 public class DepartmentServiceImpl implements DepartmentService {
 
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     @Override
     public String add(Department department) {
@@ -12,8 +21,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public String delete(String id) {
-        return null;
+    public void delete(String id) {
+        departmentRepository.delete(id);
     }
 
     @Override
@@ -23,6 +32,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public Department select(String id) {
-        return null;
+        return departmentRepository.findOne(id);
     }
 }

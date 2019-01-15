@@ -6,15 +6,14 @@ import ac.university.collegeApplication.entity.Department;
 import ac.university.collegeApplication.service.DepartmentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DepartmentController {
 
     @Autowired
     DepartmentService departmentService;
+
     @RequestMapping("/addDepartment")
     public String add(@RequestBody DepartmentDTO[] departmentDTO){
         for (DepartmentDTO d:departmentDTO
@@ -26,6 +25,13 @@ public class DepartmentController {
 
         return "added";
     }
+
+    @GetMapping("/selectDepartment")
+    public Department select(@RequestParam String departmentId)
+    {
+        return departmentService.select(departmentId);
+    }
+
 
 
 }
