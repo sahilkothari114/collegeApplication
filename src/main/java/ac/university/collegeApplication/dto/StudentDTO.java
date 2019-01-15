@@ -4,6 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 public class StudentDTO {
+    public StudentDTO(String studentId, String firstName, String lastName, String emailId, String conatactNumber, int semester) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+        this.conatactNumber = conatactNumber;
+        this.semester = semester;
+    }
+
     private String studentId;
     private String firstName;
     private String lastName;
@@ -67,4 +76,18 @@ public class StudentDTO {
     public void setDepartmentDTO(DepartmentDTO departmentDTO) {
         this.departmentDTO = departmentDTO;
     }
+
+    @Override
+    public String toString() {
+        return "StudentDTO{" +
+                "studentId='" + studentId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", conatactNumber='" + conatactNumber + '\'' +
+                ", semester=" + semester +
+                ", departmentDTO=" + departmentDTO +
+                '}';
+    }
+
 }
