@@ -17,6 +17,83 @@ public class Student {
     private String emailId;
     private String conatactNumber;
     private int semester;
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public String getConatactNumber() {
+        return conatactNumber;
+    }
+
+    public void setConatactNumber(String conatactNumber) {
+        this.conatactNumber = conatactNumber;
+    }
+
+    public int getSemester() {
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public List<StudentSubject> getSubjectList() {
+        return subjectList;
+    }
+
+    public void setSubjectList(List<StudentSubject> subjectList) {
+        this.subjectList = subjectList;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId='" + studentId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailId='" + emailId + '\'' +
+                ", conatactNumber='" + conatactNumber + '\'' +
+                ", semester=" + semester +
+                ", department=" + department +
+                ", subjectList=" + subjectList +
+                '}';
+    }
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
