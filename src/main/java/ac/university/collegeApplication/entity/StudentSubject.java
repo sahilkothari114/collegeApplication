@@ -1,6 +1,8 @@
 package ac.university.collegeApplication.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -30,12 +32,20 @@ public class StudentSubject {
         this.studentSubjectID = new StudentSubjectID(student.getStudentId(),subject.getSubjectId());
     }
 
-    public StudentSubjectID getStudentSubjectID() {
-        return studentSubjectID;
+    public String getStudentId() {
+        return studentSubjectID.getStudentId();
     }
 
-    public void setStudentSubjectID(StudentSubjectID studentSubjectID) {
-        this.studentSubjectID = studentSubjectID;
+    public void setStudentId(String studentId) {
+        studentSubjectID.setStudentId(studentId);
+    }
+
+    public String getSubjectId() {
+        return studentSubjectID.getSubjectId();
+    }
+
+    public void setSubjectId(String subjectId) {
+        studentSubjectID.setSubjectId(subjectId);
     }
 
     public Student getStudent() {

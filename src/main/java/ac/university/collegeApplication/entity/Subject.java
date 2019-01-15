@@ -1,6 +1,8 @@
 package ac.university.collegeApplication.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +15,11 @@ public class Subject {
     private int credits;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
+    @JsonIgnore
     private Department department;
 
     @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL, orphanRemoval = true)
+            @JsonIgnore
     List<StudentSubject> studentSubjectList = new ArrayList<>();
 
     public Subject() {

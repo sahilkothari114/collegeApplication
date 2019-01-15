@@ -3,12 +3,15 @@ package ac.university.collegeApplication.dto;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
 public class StudentSubjectDTO {
+    @JsonIgnore
     private StudentSubjectIDDTO studentSubjectID;
 
     private StudentDTO student;

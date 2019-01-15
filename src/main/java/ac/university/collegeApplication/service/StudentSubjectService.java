@@ -6,6 +6,6 @@ import ac.university.collegeApplication.entity.StudentSubject;
 import java.util.List;
 
 public interface StudentSubjectService {
-    void addSubject(StudentSubject studentSubject);
-    List<StudentSubject> findSubjectByStudent(Student student);
+    StudentSubject addSubject(StudentSubject studentSubject);
+    List<StudentSubject> findAll();
 }
