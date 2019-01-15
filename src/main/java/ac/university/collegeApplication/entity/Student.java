@@ -17,6 +17,7 @@ public class Student {
     private String emailId;
     private String conatactNumber;
     private int semester;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
