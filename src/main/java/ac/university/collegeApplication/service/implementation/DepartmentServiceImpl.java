@@ -17,6 +17,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public String add(Department department) {
+
+
+        departmentRepository.save(department);
         return null;
     }
 

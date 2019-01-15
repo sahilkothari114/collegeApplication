@@ -14,7 +14,7 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @RequestMapping("/addDepartment")
+    @RequestMapping(value = "/addDepartment",method = RequestMethod.POST)
     public String add(@RequestBody DepartmentDTO[] departmentDTO){
         for (DepartmentDTO d:departmentDTO
              ) {
