@@ -16,12 +16,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public String add(Department department) {
+        departmentRepository.save(department);
         return null;
     }
 
     @Override
-    public void delete(String id) {
-        departmentRepository.delete(id);
+    public void delete(String departmentId) {
+        departmentRepository.delete(departmentId);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Department select(String id) {
-        return departmentRepository.findOne(id);
+    public Department select(String departmentId) {
+        return departmentRepository.findOne(departmentId);
     }
 }
