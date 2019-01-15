@@ -3,6 +3,14 @@ package ac.university.collegeApplication.dto;
 import javax.persistence.Id;
 
 public class SubjectDTO {
+
+    public SubjectDTO(String subjectId, String subjectName, int semester, int credits) {
+        this.subjectId = subjectId;
+        this.subjectName = subjectName;
+        this.semester = semester;
+        this.credits = credits;
+    }
+
     private String subjectId;
     private String subjectName;
     private int semester;
@@ -47,5 +55,16 @@ public class SubjectDTO {
 
     public void setDepartmentDTO(DepartmentDTO departmentDTO) {
         this.departmentDTO = departmentDTO;
+    }
+
+    @Override
+    public String toString() {
+        return "SubjectDTO{" +
+                "subjectId='" + subjectId + '\'' +
+                ", subjectName='" + subjectName + '\'' +
+                ", semester=" + semester +
+                ", credits=" + credits +
+                ", departmentDTO=" + departmentDTO +
+                '}';
     }
 }
