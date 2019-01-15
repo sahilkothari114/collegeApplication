@@ -3,6 +3,8 @@ package ac.university.collegeApplication.dto;
 import javax.persistence.Id;
 
 public class DepartmentDTO {
+    public DepartmentDTO() {
+    }
 
     public DepartmentDTO(String departmentId, String departmentName) {
         this.departmentId = departmentId;

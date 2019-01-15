@@ -3,6 +3,11 @@ package ac.university.collegeApplication.dto;
 import javax.persistence.Id;
 
 public class ProfessorDTO {
+
+    public ProfessorDTO() {
+
+    }
+
     public ProfessorDTO(String professorId, String firstName, String lastName, String emailId, String conatactNumber) {
         this.professorId = professorId;
         this.firstName = firstName;
