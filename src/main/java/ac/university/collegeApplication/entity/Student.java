@@ -1,7 +1,6 @@
 package ac.university.collegeApplication.entity;
 
-import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -106,7 +105,6 @@ public class Student {
         StudentSubject studentSubject = new StudentSubject(this, subject);
         subjectList.add(studentSubject);
         subject.getStudentSubjectList().add(studentSubject);
-
     }
 
     public void removeSubject(Subject subject) {

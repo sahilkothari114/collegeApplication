@@ -1,5 +1,44 @@
 package ac.university.collegeApplication.service.implementation;
 
-public class StudentServiceImpl {
+import ac.university.collegeApplication.entity.Student;
+import ac.university.collegeApplication.entity.Subject;
+import ac.university.collegeApplication.repository.StudentRepository;
+import ac.university.collegeApplication.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+    @Autowired
+    StudentRepository studentRepository;
+    @Override
+    public Student add(Student student) {
+        return  studentRepository.save(student);
+
+    }
+
+    @Override
+    public Student findOne(String studentId) {
+        return studentRepository.findOne(studentId);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return null;
+    }
+
+    @Override
+    public void delete(Student student) {
+
+    }
+
+    @Override
+    public void sddSubject(List<Subject> subjectList,Student student) {
+        for (Subject subject: subjectList) {
+            student.addSubject(subject);
+        }
+        studentRepository.save(student);
+    }
 }

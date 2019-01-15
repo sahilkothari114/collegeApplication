@@ -1,7 +1,13 @@
 package ac.university.collegeApplication.dto;
 
+import ac.university.collegeApplication.entity.StudentSubject;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDTO {
     public StudentDTO() {
@@ -22,7 +28,17 @@ public class StudentDTO {
     private String emailId;
     private String conatactNumber;
     private int semester;
-    private DepartmentDTO departmentDTO;
+    private DepartmentDTO department;
+    @JsonIgnore
+    private List<StudentSubject> subjectList = new ArrayList<>();
+
+    public List<StudentSubject> getSubjectList() {
+        return subjectList;
+    }
+
+    public void setSubjectList(List<StudentSubject> subjectList) {
+        this.subjectList = subjectList;
+    }
 
     public String getStudentId() {
         return studentId;
@@ -72,25 +88,25 @@ public class StudentDTO {
         this.semester = semester;
     }
 
-    public DepartmentDTO getDepartmentDTO() {
-        return departmentDTO;
+    public DepartmentDTO getDepartment() {
+        return department;
     }
 
-    public void setDepartmentDTO(DepartmentDTO departmentDTO) {
-        this.departmentDTO = departmentDTO;
+    public void setDepartment(DepartmentDTO department) {
+        this.department = department;
     }
 
-    @Override
-    public String toString() {
-        return "StudentDTO{" +
-                "studentId='" + studentId + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", emailId='" + emailId + '\'' +
-                ", conatactNumber='" + conatactNumber + '\'' +
-                ", semester=" + semester +
-                ", departmentDTO=" + departmentDTO +
-                '}';
+    public StudentDTO(String studentId, String firstName, String lastName, String emailId, String conatactNumber, int semester, DepartmentDTO department, List<StudentSubject> subjectList) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+        this.conatactNumber = conatactNumber;
+        this.semester = semester;
+        this.department = department;
+        this.subjectList = subjectList;
     }
+
+
 
 }

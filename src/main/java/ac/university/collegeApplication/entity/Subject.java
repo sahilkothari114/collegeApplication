@@ -1,6 +1,5 @@
 package ac.university.collegeApplication.entity;
 
-import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +17,9 @@ public class Subject {
 
     @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL, orphanRemoval = true)
     List<StudentSubject> studentSubjectList = new ArrayList<>();
+
+    public Subject() {
+    }
 
     public String getSubjectId() {
         return subjectId;

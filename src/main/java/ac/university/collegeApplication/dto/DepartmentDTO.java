@@ -1,7 +1,5 @@
 package ac.university.collegeApplication.dto;
 
-import javax.persistence.Id;
-
 public class DepartmentDTO {
     public DepartmentDTO() {
     }

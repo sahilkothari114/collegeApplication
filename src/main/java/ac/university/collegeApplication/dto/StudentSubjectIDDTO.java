@@ -1,17 +1,15 @@
-package ac.university.collegeApplication.entity;
+package ac.university.collegeApplication.dto;
 
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 
-@Embeddable
-public class StudentSubjectID implements Serializable {
+public class StudentSubjectIDDTO implements Serializable {
     private String studentId;
     private String subjectId;
 
-    public StudentSubjectID() {
+    public StudentSubjectIDDTO() {
     }
 
-    public StudentSubjectID(String studentId, String subjectId) {
+    public StudentSubjectIDDTO(String studentId, String subjectId) {
         this.studentId = studentId;
         this.subjectId = subjectId;
     }
