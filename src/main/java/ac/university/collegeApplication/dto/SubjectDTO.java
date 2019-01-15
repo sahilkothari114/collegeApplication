@@ -3,6 +3,8 @@ package ac.university.collegeApplication.dto;
 import javax.persistence.Id;
 
 public class SubjectDTO {
+    public SubjectDTO() {
+    }
 
     public SubjectDTO(String subjectId, String subjectName, int semester, int credits) {
         this.subjectId = subjectId;

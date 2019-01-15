@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 public class StudentDTO {
+    public StudentDTO() {
+    }
+
     public StudentDTO(String studentId, String firstName, String lastName, String emailId, String conatactNumber, int semester) {
         this.studentId = studentId;
         this.firstName = firstName;
