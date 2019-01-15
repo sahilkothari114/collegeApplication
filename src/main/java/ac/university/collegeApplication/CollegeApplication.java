@@ -9,6 +9,6 @@ public class CollegeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CollegeApplication.class, args);
 	}
-
+//hi
 }
 
