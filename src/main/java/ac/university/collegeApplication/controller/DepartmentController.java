@@ -27,9 +27,15 @@ public class DepartmentController {
     }
 
     @GetMapping("/selectDepartment")
-    public Department select(@RequestParam String departmentId)
+    public Department selectDepartment(@RequestParam String departmentId)
     {
         return departmentService.select(departmentId);
+    }
+
+    @DeleteMapping("/deleteDepartment")
+    public void deleteDepartment(@RequestParam String departmentId)
+    {
+        departmentService.delete(departmentId);
     }
 
 
