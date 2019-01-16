@@ -9,12 +9,10 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 
 
 @SpringBootApplication
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class CollegeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CollegeApplication.class, args);
 	}
-//hi
 }
 

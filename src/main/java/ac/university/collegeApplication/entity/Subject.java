@@ -8,19 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 @Entity
 public class Subject {
+
     @Id
     private String subjectId;
+
     private String subjectName;
     private int semester;
     private int credits;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
     @JsonIgnore
     private Department department;
 
-    @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL, orphanRemoval = true)
-            @JsonIgnore
-    List<StudentSubject> studentSubjectList = new ArrayList<>();
+//    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
+//    List<StudentSubject> studentSubjectList = new ArrayList<>();
 
     public Subject() {
     }
@@ -65,11 +67,5 @@ public class Subject {
         this.department = department;
     }
 
-    public List<StudentSubject> getStudentSubjectList() {
-        return studentSubjectList;
-    }
 
-    public void setStudentSubjectList(List<StudentSubject> studentSubjectList) {
-        this.studentSubjectList = studentSubjectList;
-    }
 }

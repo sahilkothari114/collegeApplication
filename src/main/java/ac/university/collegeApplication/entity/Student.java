@@ -1,7 +1,6 @@
 package ac.university.collegeApplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,13 +9,26 @@ import java.util.List;
 
 @Entity
 public class Student {
+
     @Id
     private String studentId;
+
     private String firstName;
     private String lastName;
     private String emailId;
     private String conatactNumber;
     private int semester;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+/*    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<StudentSubject> subjectList = new ArrayList<>();*/
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Score>  scoreList = new ArrayList<>();
+
     public String getStudentId() {
         return studentId;
     }
@@ -73,55 +85,40 @@ public class Student {
         this.department = department;
     }
 
-    public List<StudentSubject> getSubjectList() {
-        return subjectList;
+    public List<Score> getScoreList() {
+        return scoreList;
     }
 
-    public void setSubjectList(List<StudentSubject> subjectList) {
-        this.subjectList = subjectList;
+    public void setScoreList(List<Score> scoreList) {
+        this.scoreList = scoreList;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "studentId='" + studentId + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", emailId='" + emailId + '\'' +
-                ", conatactNumber='" + conatactNumber + '\'' +
-                ", semester=" + semester +
-                ", department=" + department +
-                ", subjectList=" + subjectList +
-                '}';
+    public boolean add(Score score) {
+        return getScoreList().add(score);
     }
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "department_id", nullable = false)
-    @JsonIgnore
-    private Department department;
-
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<StudentSubject> subjectList = new ArrayList<>();
-
-    public void addSubject(Subject subject) {
-        StudentSubject studentSubject = new StudentSubject(this, subject);
-        subjectList.add(studentSubject);
-        subject.getStudentSubjectList().add(studentSubject);
+    public Score get(int index) {
+        return getScoreList().get(index);
     }
 
-    public void removeSubject(Subject subject) {
-        for (Iterator<StudentSubject> iterator = subjectList.iterator();
-             iterator.hasNext(); ) {
-                StudentSubject studentSubject = iterator.next();
-
-            if (studentSubject.getStudent().equals(this) &&
-                    studentSubject.getSubject().equals(subject)) {
-                iterator.remove();
-                studentSubject.getSubject().getStudentSubjectList().remove(studentSubject);
-                studentSubject.setStudent(null);
-                studentSubject.setSubject(null);
-            }
-        }
-    }
+//    public void addSubject(Subject subject) {
+//        StudentSubject studentSubject = new StudentSubject(this, subject);
+//        subjectList.add(studentSubject);
+//        subject.getStudentSubjectList().add(studentSubject);
+//    }
+//
+//    public void removeSubject(Subject subject) {
+//        for (Iterator<StudentSubject> iterator = subjectList.iterator();
+//             iterator.hasNext(); ) {
+//                StudentSubject studentSubject = iterator.next();
+//
+//            if (studentSubject.getStudent().equals(this) &&
+//                    studentSubject.getSubject().equals(subject)) {
+//                iterator.remove();
+//                studentSubject.getSubject().getStudentSubjectList().remove(studentSubject);
+//                studentSubject.setStudent(null);
+//                studentSubject.setSubject(null);
+//            }
+//        }
+//    }
 }

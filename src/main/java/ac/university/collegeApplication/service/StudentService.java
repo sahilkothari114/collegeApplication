@@ -11,5 +11,5 @@ public interface StudentService {
     Student findOne(String studentId);
     List<Student> findAll();
     void delete(Student student);
-    void sddSubject(List<Subject> subjectList, Student student);
+    void addSubject(Student student);
 }

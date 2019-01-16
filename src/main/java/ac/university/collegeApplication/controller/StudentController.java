@@ -1,8 +1,10 @@
 package ac.university.collegeApplication.controller;
 
 import ac.university.collegeApplication.dto.DepartmentDTO;
+import ac.university.collegeApplication.dto.ScoreDTO;
 import ac.university.collegeApplication.dto.StudentDTO;
 import ac.university.collegeApplication.entity.Department;
+import ac.university.collegeApplication.entity.Score;
 import ac.university.collegeApplication.entity.Student;
 import ac.university.collegeApplication.entity.StudentSubject;
 import ac.university.collegeApplication.service.StudentService;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -38,6 +41,31 @@ public class StudentController {
         BeanUtils.copyProperties(studentDTO.getDepartment(),department);
         BeanUtils.copyProperties(studentDTO, student);
         student.setDepartment(department);
+        Student studentCreated  = studentService.add(student);
+        return new ResponseEntity<String>(studentCreated.getStudentId(),HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/add-subject",method = RequestMethod.POST)
+    public ResponseEntity<String> addSubject(@RequestBody StudentDTO studentDTO){
+
+        Student student = new Student();
+        Department department = new Department();
+        BeanUtils.copyProperties(studentDTO.getDepartment(),department);
+        BeanUtils.copyProperties(studentDTO, student);
+        student.setDepartment(department);
+
+        Iterator<ScoreDTO> iterator = studentDTO.getScoreList().iterator();
+        List<Score> scoreList = new ArrayList<>();
+        while (iterator.hasNext()){
+            Score score = new Score();
+            ScoreDTO scoreDTO1 =  iterator.next();
+            BeanUtils.copyProperties(scoreDTO1, score);
+            score.setMarksId(student.getStudentId()+"-"+score.getSubject().getSubjectId());
+            scoreList.add(score);
+        }
+        student.setScoreList(scoreList);
+
+
         Student studentCreated  = studentService.add(student);
         return new ResponseEntity<String>(studentCreated.getStudentId(),HttpStatus.CREATED);
     }

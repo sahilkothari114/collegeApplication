@@ -35,10 +35,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void sddSubject(List<Subject> subjectList,Student student) {
-        for (Subject subject: subjectList) {
-            student.addSubject(subject);
-        }
+    public void addSubject(Student student) {
         studentRepository.save(student);
     }
 }

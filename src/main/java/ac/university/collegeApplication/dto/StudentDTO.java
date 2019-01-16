@@ -1,5 +1,6 @@
 package ac.university.collegeApplication.dto;
 
+import ac.university.collegeApplication.entity.Score;
 import ac.university.collegeApplication.entity.StudentSubject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -13,15 +14,6 @@ public class StudentDTO {
     public StudentDTO() {
     }
 
-    public StudentDTO(String studentId, String firstName, String lastName, String emailId, String conatactNumber, int semester) {
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.conatactNumber = conatactNumber;
-        this.semester = semester;
-    }
-
     private String studentId;
     private String firstName;
     private String lastName;
@@ -29,15 +21,14 @@ public class StudentDTO {
     private String conatactNumber;
     private int semester;
     private DepartmentDTO department;
-    @JsonIgnore
-    private List<StudentSubject> subjectList = new ArrayList<>();
+    private List<ScoreDTO>  scoreList = new ArrayList<>();
 
-    public List<StudentSubject> getSubjectList() {
-        return subjectList;
+    public boolean add(ScoreDTO scoreDTO) {
+        return getScoreList().add(scoreDTO);
     }
 
-    public void setSubjectList(List<StudentSubject> subjectList) {
-        this.subjectList = subjectList;
+    public ScoreDTO get(int index) {
+        return getScoreList().get(index);
     }
 
     public String getStudentId() {
@@ -96,17 +87,11 @@ public class StudentDTO {
         this.department = department;
     }
 
-    public StudentDTO(String studentId, String firstName, String lastName, String emailId, String conatactNumber, int semester, DepartmentDTO department, List<StudentSubject> subjectList) {
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.conatactNumber = conatactNumber;
-        this.semester = semester;
-        this.department = department;
-        this.subjectList = subjectList;
+    public List<ScoreDTO> getScoreList() {
+        return scoreList;
     }
 
-
-
+    public void setScoreList(List<ScoreDTO> scoreList) {
+        this.scoreList = scoreList;
+    }
 }
