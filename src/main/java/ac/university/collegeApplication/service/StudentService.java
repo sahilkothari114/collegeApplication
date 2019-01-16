@@ -12,4 +12,5 @@ public interface StudentService {
     List<Student> findAll();
     void delete(Student student);
     void addSubject(Student student);
+    double findAvgMarksCurrentSem(String studentid,String semester);
 }

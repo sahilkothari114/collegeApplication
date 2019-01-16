@@ -44,7 +44,10 @@ public class StudentController {
         Student studentCreated  = studentService.add(student);
         return new ResponseEntity<String>(studentCreated.getStudentId(),HttpStatus.CREATED);
     }
-
+    @GetMapping(value = "/getcurrentsemester")
+    public double findAvgMarksCurSem(String studentid,String semester){
+        return studentService.findAvgMarksCurrentSem(studentid,semester);
+    }
     @RequestMapping(value = "/add-subject",method = RequestMethod.POST)
     public ResponseEntity<String> addSubject(@RequestBody StudentDTO studentDTO){
 

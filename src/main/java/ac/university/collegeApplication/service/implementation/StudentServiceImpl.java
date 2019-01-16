@@ -18,7 +18,10 @@ public class StudentServiceImpl implements StudentService {
         return  studentRepository.save(student);
 
     }
-
+    @Override
+    public double findAvgMarksCurrentSem(String studentid,String semester){
+        return studentRepository.findAvgMarksCurrentSem(studentid,semester);
+    }
     @Override
     public Student findOne(String studentId) {
         return studentRepository.findOne(studentId);

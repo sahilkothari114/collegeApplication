@@ -3,8 +3,10 @@ package ac.university.collegeApplication.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-@Entity
+import javax.persistence.Table;
 
+@Entity
+@Table(name ="department")
 public class Department {
     @Id
     private String departmentId;
