@@ -1,28 +1,43 @@
 package ac.university.collegeApplication.dto;
 
+import ac.university.collegeApplication.entity.Department;
+import ac.university.collegeApplication.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.Id;
 
 public class ProfessorDTO {
 
-    public ProfessorDTO() {
+     public ProfessorDTO() {
 
-    }
-
-    public ProfessorDTO(String professorId, String firstName, String lastName, String emailId, String conatactNumber) {
-        this.professorId = professorId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.conatactNumber = conatactNumber;
     }
 
     private String professorId;
     private String firstName;
     private String lastName;
     private String emailId;
-    private String conatactNumber;
-    private DepartmentDTO primaryDepartmentDTO;
-    private DepartmentDTO secondaryDepartmentDTO;
+    private String contactNumber;
+    private String primaryDepartmentId;
+    private String secondaryDepartmentId;
+
+
+
+    public String getPrimaryDepartmentId() {
+        return primaryDepartmentId;
+    }
+
+    public void setPrimaryDepartmentId(String primaryDepartmentId) {
+        this.primaryDepartmentId = primaryDepartmentId;
+    }
+
+    public String getSecondaryDepartmentId() {
+        return secondaryDepartmentId;
+    }
+
+    public void setSecondaryDepartmentId(String secondaryDepartmentId) {
+        this.secondaryDepartmentId = secondaryDepartmentId;
+    }
+
 
     public String getProfessorId() {
         return professorId;
@@ -56,28 +71,12 @@ public class ProfessorDTO {
         this.emailId = emailId;
     }
 
-    public String getConatactNumber() {
-        return conatactNumber;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setConatactNumber(String conatactNumber) {
-        this.conatactNumber = conatactNumber;
-    }
-
-    public DepartmentDTO getPrimaryDepartmentDTO() {
-        return primaryDepartmentDTO;
-    }
-
-    public void setPrimaryDepartmentDTO(DepartmentDTO primaryDepartmentDTO) {
-        this.primaryDepartmentDTO = primaryDepartmentDTO;
-    }
-
-    public DepartmentDTO getSecondaryDepartmentDTO() {
-        return secondaryDepartmentDTO;
-    }
-
-    public void setSecondaryDepartmentDTO(DepartmentDTO secondaryDepartmentDTO) {
-        this.secondaryDepartmentDTO = secondaryDepartmentDTO;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     @Override
@@ -87,9 +86,9 @@ public class ProfessorDTO {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", conatactNumber='" + conatactNumber + '\'' +
-                ", primaryDepartmentDTO=" + primaryDepartmentDTO +
-                ", secondaryDepartmentDTO=" + secondaryDepartmentDTO +
+                ", contactNumber='" + contactNumber + '\'' +
+                ", primaryDepartmentId='" + primaryDepartmentId + '\'' +
+                ", secondaryDepartmentId='" + secondaryDepartmentId + '\'' +
                 '}';
     }
 }
