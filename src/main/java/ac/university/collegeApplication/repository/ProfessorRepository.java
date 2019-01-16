@@ -11,7 +11,7 @@ import java.util.Map;
 @Repository
 public interface ProfessorRepository extends CrudRepository<Professor,String> {
 
-@Query(value = "select professorid,avg(marks*credits) from score inner join subject group by professorid order by professorid desc",nativeQuery = true)
+@Query(value = "select professorid,avg(marks*credits) as agm from score inner join subject group by professorid order by agm desc",nativeQuery = true)
     public Map<String, Double> findProfessorRank();
 
 
