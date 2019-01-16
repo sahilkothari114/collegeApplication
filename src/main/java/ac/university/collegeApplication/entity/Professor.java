@@ -9,7 +9,9 @@ public class Professor {
     private String firstName;
     private String lastName;
     private String emailId;
-    private String conatactNumber;
+    private String contactNumber;
+
+
 
     public String getProfessorId() {
         return professorId;
@@ -43,16 +45,17 @@ public class Professor {
         this.emailId = emailId;
     }
 
-    public String getConatactNumber() {
-        return conatactNumber;
-    }
-
-    public void setConatactNumber(String conatactNumber) {
-        this.conatactNumber = conatactNumber;
-    }
 
     public Department getPrimaryDepartment() {
         return primaryDepartment;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public void setPrimaryDepartment(Department primaryDepartment) {
@@ -74,7 +77,7 @@ public class Professor {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", conatactNumber='" + conatactNumber + '\'' +
+                ", contactNumber='" + contactNumber + '\'' +
                 ", primaryDepartment=" + primaryDepartment +
                 ", secondaryDepartment=" + secondaryDepartment +
                 '}';

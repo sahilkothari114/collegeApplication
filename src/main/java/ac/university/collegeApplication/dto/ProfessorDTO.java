@@ -8,35 +8,36 @@ import javax.persistence.Id;
 
 public class ProfessorDTO {
 
-    @Autowired
-    DepartmentService departmentService;
-    public ProfessorDTO() {
+     public ProfessorDTO() {
 
     }
-
 
     private String professorId;
     private String firstName;
     private String lastName;
     private String emailId;
-    private String conatactNumber;
+    private String contactNumber;
     private String primaryDepartmentId;
     private String secondaryDepartmentId;
 
-    public ProfessorDTO(String professorId, String firstName, String lastName, String emailId, String conatactNumber, String primaryDepartmentId, String secondaryDepartmentId) {
-        this.professorId = professorId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.conatactNumber = conatactNumber;
-        this.primaryDepartmentId = primaryDepartmentId;
-        this.secondaryDepartmentId = secondaryDepartmentId;
-        this.primaryDepartment=departmentService.select(primaryDepartmentId);
-        this.secondaryDepartment=departmentService.select(secondaryDepartmentId);
+
+
+    public String getPrimaryDepartmentId() {
+        return primaryDepartmentId;
     }
 
-    private Department primaryDepartment;
-    private Department secondaryDepartment;
+    public void setPrimaryDepartmentId(String primaryDepartmentId) {
+        this.primaryDepartmentId = primaryDepartmentId;
+    }
+
+    public String getSecondaryDepartmentId() {
+        return secondaryDepartmentId;
+    }
+
+    public void setSecondaryDepartmentId(String secondaryDepartmentId) {
+        this.secondaryDepartmentId = secondaryDepartmentId;
+    }
+
 
     public String getProfessorId() {
         return professorId;
@@ -70,28 +71,12 @@ public class ProfessorDTO {
         this.emailId = emailId;
     }
 
-    public String getConatactNumber() {
-        return conatactNumber;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setConatactNumber(String conatactNumber) {
-        this.conatactNumber = conatactNumber;
-    }
-
-    public Department getPrimaryDepartment() {
-        return primaryDepartment;
-    }
-
-    public void setPrimaryDepartment(Department primaryDepartment) {
-        this.primaryDepartment = primaryDepartment;
-    }
-
-    public Department getSecondaryDepartment() {
-        return secondaryDepartment;
-    }
-
-    public void setSecondaryDepartment(Department secondaryDepartment) {
-        this.secondaryDepartment = secondaryDepartment;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     @Override
@@ -101,9 +86,9 @@ public class ProfessorDTO {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", conatactNumber='" + conatactNumber + '\'' +
-                ", primaryDepartment=" + primaryDepartment +
-                ", secondaryDepartment=" + secondaryDepartment +
+                ", contactNumber='" + contactNumber + '\'' +
+                ", primaryDepartmentId='" + primaryDepartmentId + '\'' +
+                ", secondaryDepartmentId='" + secondaryDepartmentId + '\'' +
                 '}';
     }
 }
