@@ -1,6 +1,7 @@
 package ac.university.collegeApplication.entity;
 
-import lombok.Data;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
 @Entity
-@Data
 public class StudentSubject {
     @EmbeddedId
     private StudentSubjectID studentSubjectID;
@@ -21,19 +21,31 @@ public class StudentSubject {
     @MapsId("subjectId")
     private Subject subject;
 
+    public StudentSubject() {
+    }
+
     private int marks;
 
     public StudentSubject(Student student, Subject subject) {
         this.student = student;
         this.subject = subject;
+        this.studentSubjectID = new StudentSubjectID(student.getStudentId(),subject.getSubjectId());
     }
 
-    public StudentSubjectID getStudentSubjectID() {
-        return studentSubjectID;
+    public String getStudentId() {
+        return studentSubjectID.getStudentId();
     }
 
-    public void setStudentSubjectID(StudentSubjectID studentSubjectID) {
-        this.studentSubjectID = studentSubjectID;
+    public void setStudentId(String studentId) {
+        studentSubjectID.setStudentId(studentId);
+    }
+
+    public String getSubjectId() {
+        return studentSubjectID.getSubjectId();
+    }
+
+    public void setSubjectId(String subjectId) {
+        studentSubjectID.setSubjectId(subjectId);
     }
 
     public Student getStudent() {

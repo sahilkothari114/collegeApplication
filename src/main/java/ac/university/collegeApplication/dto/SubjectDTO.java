@@ -1,6 +1,11 @@
 package ac.university.collegeApplication.dto;
 
+import ac.university.collegeApplication.entity.StudentSubject;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SubjectDTO {
     public SubjectDTO() {
@@ -17,7 +22,9 @@ public class SubjectDTO {
     private String subjectName;
     private int semester;
     private int credits;
-    private DepartmentDTO departmentDTO;
+    private DepartmentDTO department;
+    @JsonIgnore
+    List<StudentSubject> studentSubjectList = new ArrayList<>();
 
     public String getSubjectId() {
         return subjectId;
@@ -51,22 +58,21 @@ public class SubjectDTO {
         this.credits = credits;
     }
 
-    public DepartmentDTO getDepartmentDTO() {
-        return departmentDTO;
+    public DepartmentDTO getDepartment() {
+        return department;
     }
 
-    public void setDepartmentDTO(DepartmentDTO departmentDTO) {
-        this.departmentDTO = departmentDTO;
+    public void setDepartment(DepartmentDTO department) {
+        this.department = department;
     }
 
-    @Override
-    public String toString() {
-        return "SubjectDTO{" +
-                "subjectId='" + subjectId + '\'' +
-                ", subjectName='" + subjectName + '\'' +
-                ", semester=" + semester +
-                ", credits=" + credits +
-                ", departmentDTO=" + departmentDTO +
-                '}';
+    public List<StudentSubject> getStudentSubjectList() {
+        return studentSubjectList;
     }
+
+    public void setStudentSubjectList(List<StudentSubject> studentSubjectList) {
+        this.studentSubjectList = studentSubjectList;
+    }
+
+
 }

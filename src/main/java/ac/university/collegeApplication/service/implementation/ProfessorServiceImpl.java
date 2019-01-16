@@ -15,22 +15,22 @@ public class ProfessorServiceImpl implements ProfessorService {
     ProfessorRepository professorRepository;
 
     @Override
-    public String add(Professor department) {
+    public String add(Professor professor) {
         return null;
     }
 
     @Override
-    public void delete(String id) {
-        professorRepository.delete(id);
+    public void delete(String professorId) {
+        professorRepository.delete(professorId);
     }
 
     @Override
-    public String update(Professor department) {
+    public String update(Professor professor) {
         return null;
     }
 
     @Override
-    public Professor select(String id) {
-        return professorRepository.findOne(id);
+    public Professor select(String professorId) {
+        return professorRepository.findOne(professorId);
     }
 }

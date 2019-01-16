@@ -1,7 +1,7 @@
 package ac.university.collegeApplication.entity;
 
-import lombok.Data;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -97,16 +97,17 @@ public class Student {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "department_id", nullable = false)
+    @JsonIgnore
     private Department department;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<StudentSubject> subjectList = new ArrayList<>();
 
     public void addSubject(Subject subject) {
         StudentSubject studentSubject = new StudentSubject(this, subject);
         subjectList.add(studentSubject);
         subject.getStudentSubjectList().add(studentSubject);
-
     }
 
     public void removeSubject(Subject subject) {

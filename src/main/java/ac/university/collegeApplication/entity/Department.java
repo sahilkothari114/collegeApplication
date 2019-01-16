@@ -1,6 +1,5 @@
 package ac.university.collegeApplication.entity;
 
-import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +9,14 @@ public class Department {
     @Id
     private String departmentId;
     private String departmentName;
+
+    public Department() {
+    }
+
+    public Department(String departmentId, String departmentName) {
+        this.departmentId = departmentId;
+        this.departmentName = departmentName;
+    }
 
     public String getDepartmentId() {
         return departmentId;
