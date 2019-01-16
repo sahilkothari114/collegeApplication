@@ -16,7 +16,7 @@ public class Student {
     private String firstName;
     private String lastName;
     private String emailId;
-    private String conatactNumber;
+    private String contactNumber;
     private int semester;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -61,12 +61,12 @@ public class Student {
         this.emailId = emailId;
     }
 
-    public String getConatactNumber() {
-        return conatactNumber;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setConatactNumber(String conatactNumber) {
-        this.conatactNumber = conatactNumber;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public int getSemester() {
