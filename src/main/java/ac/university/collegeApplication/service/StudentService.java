@@ -13,4 +13,5 @@ public interface StudentService {
     void delete(Student student);
     void addSubject(Student student);
     double findAvgMarksCurrentSem(String studentid,String semester);
+    double findAvgMarks(String studentid);
 }

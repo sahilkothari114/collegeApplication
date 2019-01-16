@@ -22,6 +22,12 @@ public class StudentServiceImpl implements StudentService {
     public double findAvgMarksCurrentSem(String studentid,String semester){
         return studentRepository.findAvgMarksCurrentSem(studentid,semester);
     }
+
+    @Override
+    public double findAvgMarks(String studentid) {
+        return studentRepository.findAvgMarks(studentid);
+    }
+
     @Override
     public Student findOne(String studentId) {
         return studentRepository.findOne(studentId);
