@@ -12,7 +12,7 @@ public class ProfessorController {
     @Autowired
     ProfessorService professorService;
 
-    @RequestMapping("/addProfessor")
+    @PostMapping("/addProfessor")
     public String add(@RequestBody ProfessorDTO[] professorDTO){
         for (ProfessorDTO p:professorDTO
                 ) {

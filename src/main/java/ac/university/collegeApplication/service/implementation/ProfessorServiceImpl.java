@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional
+//@Transactional
 public class ProfessorServiceImpl implements ProfessorService {
 
     @Autowired
@@ -16,6 +16,7 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public String add(Professor professor) {
+        professorRepository.save(professor);
         return null;
     }
 
