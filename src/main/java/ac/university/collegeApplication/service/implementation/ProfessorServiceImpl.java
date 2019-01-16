@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
+
 @Service
 //@Transactional
 public class ProfessorServiceImpl implements ProfessorService {
@@ -33,5 +35,10 @@ public class ProfessorServiceImpl implements ProfessorService {
     @Override
     public Professor select(String professorId) {
         return professorRepository.findOne(professorId);
+    }
+
+    @Override
+    public Map<String, Double> findProfessorRank() {
+        return professorRepository.findProfessorRank();
     }
 }

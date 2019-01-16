@@ -20,6 +20,9 @@ public class Subject {
     @JoinColumn(name = "department_id", nullable = false)
     @JsonIgnore
     private Department department;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="professor_id",nullable=false)
+    private Professor professor;
 
 //    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
 //    List<StudentSubject> studentSubjectList = new ArrayList<>();
